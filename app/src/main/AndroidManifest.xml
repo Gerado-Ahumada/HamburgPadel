@@ -11,21 +11,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HamburgPadel">
+
+        <!-- ===================================================================== -->
+        <!-- CAMBIO 1: Se añade la nueva SplashActivity como punto de entrada -->
+        <!-- ===================================================================== -->
+        <!-- app/src/main/AndroidManifest.xml -->
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.HamburgPadel">
+            android:theme="@style/Theme.HamburgPadel.Splash"> <!-- ¡CLAVE! Debe apuntar al tema con fondo transparente -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- ===================================================================== -->
+        <!-- CAMBIO 2: MainActivity ya no es la pantalla de inicio -->
+        <!-- El <intent-filter> de LAUNCHER ha sido MOVIDO a SplashActivity -->
+        <!-- Se cambia exported a "false" por seguridad y buenas prácticas -->
+        <!-- ===================================================================== -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+            <!-- El intent-filter que estaba aquí se ha movido a SplashActivity -->
+        </activity>
+
+        <!-- ===================================================================== -->
+        <!-- SIN CAMBIOS: El resto de tus actividades permanecen intactas -->
+        <!-- ===================================================================== -->
         <activity
             android:name=".QrCodeActivity"
             android:exported="false" />
         <activity android:name=".ProgressActivity" />
+
     </application>
 
 </manifest>

@@ -1,10 +1,19 @@
+<!-- app/src/main/res/values/themes.xml (VERSIÓN CORRECTA) -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-<!-- This will cause the crash -->
+
+    <!-- 1. Este es el tema base y CORRECTO para tu app. Hereda de Material3. -->
     <style name="Base.Theme.HamburgPadel" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Style customizations -->
-    </style>
-    <style name="Theme.HamburgPadel" parent="Base.Theme.HamburgPadel">
-        <!-- Style attributes -->
+        <!-- Tus personalizaciones de color, etc. van aquí -->
     </style>
 
-        </resources>
+    <!-- 2. Este es el tema principal de tu aplicación. Hereda del tema base. -->
+    <style name="Theme.HamburgPadel" parent="Base.Theme.HamburgPadel">
+    </style>
+
+    <!-- 3. Este es el tema para tu SplashActivity con Lottie. También hereda de Material3. -->
+    <style name="Theme.HamburgPadel.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/padel_black</item>
+    </style>
+
+</resources>

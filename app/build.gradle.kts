@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 }
 
@@ -54,6 +55,8 @@ dependencies {
     implementation(libs.androidx.cardview)
     implementation(libs.google.material)
     implementation(libs.zxing.embedded)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.android.lottie)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

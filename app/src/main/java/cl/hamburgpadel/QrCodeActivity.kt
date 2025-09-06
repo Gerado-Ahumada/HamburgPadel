@@ -5,13 +5,17 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.google.zxing.BarcodeFormat
+import cl.hamburgpadel.databinding.ActivityQrCodeBinding
 
 class QrCodeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityQrCodeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Conecta este archivo Kotlin con su diseño XML
         setContentView(R.layout.activity_qr_code)
+        binding = ActivityQrCodeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // 1. Recibe los datos que la pantalla anterior (ProgressActivity) le envió.
         // Usamos el operador Elvis (?:) para tener un valor por defecto en caso de que un dato no llegue.
@@ -44,5 +48,7 @@ class QrCodeActivity : AppCompatActivity() {
             // Si algo sale mal al generar el QR, se registrará el error en la consola de depuración.
             e.printStackTrace()
         }
-    }
+        binding.backButton.setOnClickListener {
+            finish()
+        }    }
 }
