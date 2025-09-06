@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+<!-- This will cause the crash -->
+    <style name="Base.Theme.HamburgPadel" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Style customizations -->
+    </style>
+    <style name="Theme.HamburgPadel" parent="Base.Theme.HamburgPadel">
+        <!-- Style attributes -->
+    </style>
+
+        </resources>

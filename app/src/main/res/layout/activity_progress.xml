@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/padel_white"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        tools:context=".ProgressActivity">
+
+        <!-- Sección de Cabecera -->
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Hola, Jugador"
+            android:textColor="@color/padel_black"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Tu progreso de Septiembre"
+            android:textColor="@color/padel_grey_dark"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
+
+        <!-- Tarjeta de Progreso con Cuadrícula de Pelotas -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_month">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_matches_played"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/padel_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="15 de 16 partidos" />
+
+                <GridLayout
+                    android:id="@+id/grid_balls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:columnCount="4"
+                    android:rowCount="4">
+
+                    <!-- Fila 1: IDs de ball_1 a ball_4 -->
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_1" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_2" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_3" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_4" android:src="@drawable/pelota" />
+                    <!-- Fila 2: IDs de ball_5 a ball_8 -->
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_5" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_6" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_7" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_8" android:src="@drawable/pelota" />
+                    <!-- Fila 3: IDs de ball_9 a ball_12 -->
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_9" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_10" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_11" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_12" android:src="@drawable/pelota" />
+                    <!-- Fila 4: IDs de ball_13 a ball_16 -->
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_13" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_14" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_15" android:src="@drawable/pelota" />
+                    <ImageView style="@style/PadelBall" android:id="@+id/ball_16" android:src="@drawable/pelota" />
+
+                </GridLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Sección de Recompensas -->
+        <TextView
+            android:id="@+id/tv_rewards_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Mis Recompensas"
+            android:textColor="@color/padel_black"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_progress" />
+
+        <LinearLayout
+            android:id="@+id/container_rewards"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rewards_title" />
+
+        <!-- Botón de Cerrar Sesión -->
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/padel_blue"
+            android:text="Cerrar Sesión"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_rewards"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

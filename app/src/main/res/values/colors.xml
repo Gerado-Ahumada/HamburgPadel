@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="padel_blue">#4285F2</color>  <!-- Azul profundo de la cancha -->
+    <color name="padel_yellow">#FFD700</color> <!-- Amarillo/Dorado de la pelota -->
+    <color name="padel_black">#212121</color>  <!-- Negro para texto principal -->
+    <color name="padel_white">#F7F9FC</color>  <!-- Un blanco ligeramente azulado para el fondo -->
+    <color name="padel_grey">#E0E0E0</color>   <!-- Gris claro para elementos pendientes -->
+    <color name="padel_grey_dark">#757575</color> <!-- Gris oscuro para texto secundario -->
+</resources>

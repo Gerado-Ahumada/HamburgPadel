@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout para una sola tarjeta en la lista de "Mis Recompensas" -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/reward_card_background"> <!-- Usaremos un drawable para el fondo -->
+
+    <ImageView
+        android:id="@+id/iv_reward_icon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        tools:src="@drawable/ic_check_circle" />
+
+    <TextView
+        android:id="@+id/tv_reward_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/padel_black"
+        tools:text="Bote de pelotas nuevo" />
+
+    <ImageView
+        android:id="@+id/iv_reward_status"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:src="@drawable/ic_check_circle" />
+
+</LinearLayout>
