@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Permitir tráfico HTTP para desarrollo local -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <!-- Agregar tu IP local si usas dispositivo físico -->
+        <!-- <domain includeSubdomains="true">192.168.1.XXX</domain> -->
+    </domain-config>
+</network-security-config>

@@ -57,6 +57,16 @@ dependencies {
     implementation(libs.zxing.embedded)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.android.lottie)
+    
+    // Network dependencies
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.gson)
+    
+    // Security
+    implementation(libs.androidx.security.crypto)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

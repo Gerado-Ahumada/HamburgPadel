@@ -1,5 +1,5 @@
 <!-- app/src/main/res/values/themes.xml (VERSIÓN CORRECTA) -->
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- 1. Este es el tema base y CORRECTO para tu app. Hereda de Material3. -->
     <style name="Base.Theme.HamburgPadel" parent="Theme.Material3.DayNight.NoActionBar">
