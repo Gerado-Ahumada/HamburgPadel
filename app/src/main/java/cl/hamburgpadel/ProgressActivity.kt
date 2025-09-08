@@ -3,10 +3,15 @@ package cl.hamburgpadel
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import cl.hamburgpadel.data.storage.TokenManager
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import java.util.UUID
 
 // El Data class no cambia, sigue siendo perfecto para representar una recompensa.
@@ -26,15 +31,21 @@ class ProgressActivity : AppCompatActivity() {
     // ---------------------------------------------
 
     private lateinit var ballImageViews: List<ImageView>
+    private lateinit var tokenManager: TokenManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_progress)
 
         val partidosJugados = intent.getIntExtra("EXTRA_PARTIDOS_JUGADOS", 0)
+        
+        // Inicializar TokenManager
+        tokenManager = TokenManager(this)
 
         initializeViews()
         updateProgressUI(partidosJugados)
+        setupLogoutButton()
+        setupRegisterActivityButton()
     }
 
     private fun initializeViews() {
@@ -135,4 +146,51 @@ class ProgressActivity : AppCompatActivity() {
         startActivity(intent)
     }
     // -------------------------------------------------------------
+    
+    private fun setupLogoutButton() {
+        val logoutButton = findViewById<Button>(R.id.buttonLogout)
+        logoutButton.setOnClickListener {
+            logout()
+        }
+    }
+
+    private fun setupRegisterActivityButton() {
+        val registerButton = findViewById<Button>(R.id.buttonRegisterActivity)
+        registerButton.setOnClickListener {
+            openQrScreenForActivity()
+        }
+    }
+
+    private fun openQrScreenForActivity() {
+        // Obtener datos reales del TokenManager
+        val token = tokenManager.getAuthToken() ?: "no-token"
+        val userUuid = tokenManager.getUserUuid() ?: "no-uuid"
+        
+        // Generar fecha y hora actual
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val currentDateTime = dateFormat.format(Date())
+        
+        // Crear intent para QrCodeActivity
+        val intent = Intent(this, QrCodeActivity::class.java)
+        
+        // Pasar los datos como extras
+        intent.putExtra("USER_NAME", tokenManager.getUserName() ?: "Usuario")
+        intent.putExtra("USER_UUID", userUuid)
+        intent.putExtra("SESSION_TOKEN", token)
+        intent.putExtra("ACTIVITY_DATETIME", currentDateTime)
+        
+        // Iniciar la actividad
+        startActivity(intent)
+    }
+
+    private fun logout() {
+        // Limpiar todos los datos almacenados
+        tokenManager.clearSession()
+        
+        // Navegar de vuelta al MainActivity (pantalla de login)
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+    }
 }

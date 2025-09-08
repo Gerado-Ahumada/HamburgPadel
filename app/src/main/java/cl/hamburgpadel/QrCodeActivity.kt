@@ -22,6 +22,7 @@ class QrCodeActivity : AppCompatActivity() {
         val userName = intent.getStringExtra("USER_NAME") ?: "N/A"
         val userUuid = intent.getStringExtra("USER_UUID") ?: "N/A"
         val sessionToken = intent.getStringExtra("SESSION_TOKEN") ?: "N/A"
+        val activityDateTime = intent.getStringExtra("ACTIVITY_DATETIME") ?: "N/A"
 
         // Busca el ImageView en el layout por su ID.
         val qrImageView = findViewById<ImageView>(R.id.iv_qr_code)
@@ -32,7 +33,8 @@ class QrCodeActivity : AppCompatActivity() {
         {
             "userName": "$userName",
             "uuid": "$userUuid",
-            "token": "$sessionToken"
+            "token": "$sessionToken",
+            "activityDateTime": "$activityDateTime"
         }
         """.trimIndent()
 

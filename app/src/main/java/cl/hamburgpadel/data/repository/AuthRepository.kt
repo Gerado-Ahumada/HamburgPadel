@@ -16,18 +16,14 @@ class AuthRepository {
     /**
      * Realiza el login del usuario
      */
-    suspend fun login(email: String, password: String): Result<LoginResponse> {
+    suspend fun login(username: String, password: String): Result<LoginResponse> {
         return try {
-            val loginRequest = LoginRequest(email, password)
+            val loginRequest = LoginRequest(username, password)
             val response = apiService.login(loginRequest)
             
             if (response.isSuccessful) {
                 response.body()?.let { loginResponse ->
-                    if (loginResponse.success) {
-                        Result.success(loginResponse)
-                    } else {
-                        Result.failure(Exception(loginResponse.message ?: "Error de autenticación"))
-                    }
+                    Result.success(loginResponse)
                 } ?: Result.failure(Exception("Respuesta vacía del servidor"))
             } else {
                 Result.failure(Exception("Error HTTP: ${response.code()} - ${response.message()}"))

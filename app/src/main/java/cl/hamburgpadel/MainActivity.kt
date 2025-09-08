@@ -2,7 +2,7 @@ package cl.hamburgpadel
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
+
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     
-    private lateinit var editTextEmail: EditText
+    private lateinit var editTextUsername: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var authRepository: AuthRepository
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun initializeComponents() {
-        editTextEmail = findViewById(R.id.editTextEmail)
+        editTextUsername = findViewById(R.id.editTextUsername)
         editTextPassword = findViewById(R.id.editTextPassword)
         loginButton = findViewById(R.id.loginButton)
         authRepository = AuthRepository()
@@ -48,11 +48,11 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun performLogin() {
-        val email = editTextEmail.text.toString().trim()
+        val username = editTextUsername.text.toString().trim()
         val password = editTextPassword.text.toString().trim()
         
         // Validar campos
-        if (!validateInput(email, password)) {
+        if (!validateInput(username, password)) {
             return
         }
         
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         // Realizar login
         lifecycleScope.launch {
             try {
-                val result = authRepository.login(email, password)
+                val result = authRepository.login(username, password)
                 
                 result.onSuccess { loginResponse ->
                     // Guardar token y datos del usuario
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                     
                     loginResponse.user?.let { user ->
                         tokenManager.saveUserData(
-                            email = user.email ?: email,
+                            email = user.email ?: "",
                             name = user.name ?: "",
                             uuid = user.uuid ?: ""
                         )
@@ -93,16 +93,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
     
-    private fun validateInput(email: String, password: String): Boolean {
-        if (email.isEmpty()) {
-            editTextEmail.error = "El email es requerido"
-            editTextEmail.requestFocus()
-            return false
-        }
-        
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.error = "Ingresa un email válido"
-            editTextEmail.requestFocus()
+    private fun validateInput(username: String, password: String): Boolean {
+        if (username.isEmpty()) {
+            editTextUsername.error = "El nombre de usuario es requerido"
+            editTextUsername.requestFocus()
             return false
         }
         
@@ -124,7 +118,7 @@ class MainActivity : AppCompatActivity() {
     private fun setLoadingState(isLoading: Boolean) {
         loginButton.isEnabled = !isLoading
         loginButton.text = if (isLoading) "Iniciando sesión..." else "Iniciar Sesión"
-        editTextEmail.isEnabled = !isLoading
+        editTextUsername.isEnabled = !isLoading
         editTextPassword.isEnabled = !isLoading
     }
     

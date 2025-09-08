@@ -122,12 +122,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_rewards_title" />
 
+        <!-- Botón de Registrar Actividad -->
+        <Button
+            android:id="@+id/buttonRegisterActivity"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/padel_blue"
+            android:text="Registrar Actividad"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_rewards"
+            />
+
         <!-- Botón de Cerrar Sesión -->
         <Button
             android:id="@+id/buttonLogout"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/padel_black"
             android:text="Cerrar Sesión"
             android:textAllCaps="false"
@@ -135,7 +151,7 @@
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/container_rewards"
+            app:layout_constraintTop_toBottomOf="@id/buttonRegisterActivity"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="1.0"
             />
