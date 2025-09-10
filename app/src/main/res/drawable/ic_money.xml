@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <!-- Money bag -->
+    <path
+        android:fillColor="#D4C4A8"
+        android:pathData="M256,120 Q320,120 360,160 Q400,200 400,280 Q400,360 360,400 Q320,440 256,440 Q192,440 152,400 Q112,360 112,280 Q112,200 152,160 Q192,120 256,120 Z"/>
+    <!-- Bag opening -->
+    <path
+        android:fillColor="#C4B59C"
+        android:pathData="M200,80 Q200,60 220,60 L292,60 Q312,60 312,80 L312,120 L200,120 Z"/>
+    <!-- Hand -->
+    <path
+        android:fillColor="#FFCC9A"
+        android:pathData="M80,320 Q60,320 60,340 L60,380 Q60,400 80,400 L160,400 Q180,400 180,380 L180,360 Q200,360 220,340 Q240,320 260,320 L380,320 Q400,320 400,300 Q400,280 380,280 L260,280 Q240,280 220,300 Q200,320 180,320 L80,320 Z"/>
+    <!-- Sleeve -->
+    <path
+        android:fillColor="#4A90E2"
+        android:pathData="M20,320 L100,320 L100,420 L20,420 Q10,420 10,410 L10,330 Q10,320 20,320 Z"/>
+    <!-- Dollar sign -->
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M256,200 L256,180 Q266,180 266,190 Q266,200 256,200 Z M256,220 Q236,220 236,240 Q236,260 256,260 Q276,260 276,240 Q276,220 256,220 Z M256,280 L256,300 Q246,300 246,290 Q246,280 256,280 Z M256,160 Q286,160 286,190 L266,190 Q266,180 256,180 L256,160 Z M256,320 Q226,320 226,290 L246,290 Q246,300 256,300 L256,320 Z"/>
+</vector>

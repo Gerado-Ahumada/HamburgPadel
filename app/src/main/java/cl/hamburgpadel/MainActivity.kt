@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import cl.hamburgpadel.data.repository.AuthRepository
 import cl.hamburgpadel.data.storage.TokenManager
+import cl.hamburgpadel.AdminActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -27,9 +28,9 @@ class MainActivity : AppCompatActivity() {
         // Inicializar componentes
         initializeComponents()
         
-        // Verificar si ya está logueado
+        // Verificar si ya está logueado y dirigir según el rol
         if (tokenManager.isLoggedIn()) {
-            navigateToProgress()
+            navigateBasedOnRole()
             return
         }
         
@@ -65,11 +66,20 @@ class MainActivity : AppCompatActivity() {
                 val result = authRepository.login(username, password)
                 
                 result.onSuccess { loginResponse ->
-                    // Guardar token y datos del usuario
+                    // Guardar token
                     loginResponse.token?.let { token ->
                         tokenManager.saveAuthToken(token)
                     }
                     
+                    // Guardar datos completos del usuario incluyendo rol
+                    tokenManager.saveCompleteUserData(
+                        id = loginResponse.id,
+                        username = loginResponse.username,
+                        email = loginResponse.email,
+                        role = loginResponse.role
+                    )
+                    
+                    // Mantener compatibilidad con datos del usuario anterior
                     loginResponse.user?.let { user ->
                         tokenManager.saveUserData(
                             email = user.email ?: "",
@@ -79,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     
                     showMessage("Login exitoso")
-                    navigateToProgress(loginResponse.user?.partidosJugados ?: 0)
+                    navigateBasedOnRole()
                     
                 }.onFailure { exception ->
                     showMessage("Error: ${exception.message}")
@@ -106,12 +116,6 @@ class MainActivity : AppCompatActivity() {
             return false
         }
         
-        if (password.length < 6) {
-            editTextPassword.error = "La contraseña debe tener al menos 6 caracteres"
-            editTextPassword.requestFocus()
-            return false
-        }
-        
         return true
     }
     
@@ -128,8 +132,30 @@ class MainActivity : AppCompatActivity() {
     
     private fun navigateToProgress(partidosJugados: Int = 0) {
         val intent = Intent(this, ProgressActivity::class.java)
-        intent.putExtra("EXTRA_PARTIDOS_JUGADOS", partidosJugados)
+        intent.putExtra("partidos_jugados", partidosJugados)
         startActivity(intent)
-        finish() // Cerrar MainActivity para que no se pueda volver con el botón atrás
+        finish()
     }
+    
+    private fun navigateToAdmin() {
+        val intent = Intent(this, AdminActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    
+    private fun navigateBasedOnRole() {
+        when {
+            tokenManager.isAdmin() -> {
+                navigateToAdmin()
+            }
+            tokenManager.isPlayer() -> {
+                navigateToProgress()
+            }
+            else -> {
+                 // Si no hay rol válido, limpiar sesión y mostrar error
+                 tokenManager.clearSession()
+                 showMessage("Error: Rol de usuario no válido")
+             }
+         }
+     }
 }

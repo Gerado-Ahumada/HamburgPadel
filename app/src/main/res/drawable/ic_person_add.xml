@@ -1,0 +1,27 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <!-- Frame/border -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,40 L472,40 Q492,40 492,60 L492,452 Q492,472 472,472 L40,472 Q20,472 20,452 L20,60 Q20,40 40,40 Z"/>
+    <path
+        android:fillColor="#E8E8E8"
+        android:pathData="M60,60 L452,60 Q462,60 462,70 L462,442 Q462,452 452,452 L60,452 Q50,452 50,442 L50,70 Q50,60 60,60 Z"/>
+    <!-- Person 1 (larger, front) -->
+    <path
+        android:fillColor="#4A90E2"
+        android:pathData="M200,140 A40,40 0 1,1 200,220 A40,40 0 1,1 200,140 Z"/>
+    <path
+        android:fillColor="#4A90E2"
+        android:pathData="M120,320 Q120,280 160,280 L240,280 Q280,280 280,320 L280,380 L120,380 Z"/>
+    <!-- Person 2 (smaller, back) -->
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M320,170 A30,30 0 1,1 320,230 A30,30 0 1,1 320,170 Z"/>
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M260,340 Q260,310 290,310 L350,310 Q380,310 380,340 L380,380 L260,380 Z"/>
+</vector>

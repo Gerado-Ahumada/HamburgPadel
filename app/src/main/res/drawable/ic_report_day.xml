@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <!-- Calendar body -->
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M80,120 L432,120 Q452,120 452,140 L452,452 Q452,472 432,472 L80,472 Q60,472 60,452 L60,140 Q60,120 80,120 Z"/>
+    <!-- Calendar header -->
+    <path
+        android:fillColor="#E74C3C"
+        android:pathData="M80,80 L432,80 Q452,80 452,100 L452,160 Q452,180 432,180 L80,180 Q60,180 60,160 L60,100 Q60,80 80,80 Z"/>
+    <!-- Calendar rings -->
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M140,45 A15,15 0 1,1 140,75 A15,15 0 1,1 140,45 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M140,52 A8,8 0 1,1 140,68 A8,8 0 1,1 140,52 Z"/>
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M372,45 A15,15 0 1,1 372,75 A15,15 0 1,1 372,45 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M372,52 A8,8 0 1,1 372,68 A8,8 0 1,1 372,52 Z"/>
+    <!-- Calendar number 31 -->
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M200,280 L200,380 L220,380 L220,300 L240,300 L240,280 Z"/>
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M260,280 Q280,280 290,290 Q300,300 300,320 Q300,340 290,350 Q280,360 260,360 Q240,360 230,350 Q220,340 220,320 L240,320 Q240,340 260,340 Q280,340 280,320 Q280,300 260,300 Q240,300 240,280 L260,280 Z"/>
+    <!-- Check mark -->
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M380,280 A40,40 0 1,1 380,360 A40,40 0 1,1 380,280 Z"/>
+    <path
+        android:pathData="M360,320 L375,335 L400,305"
+        android:strokeWidth="6"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+</vector>

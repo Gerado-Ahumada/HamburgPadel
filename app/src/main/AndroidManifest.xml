@@ -48,6 +48,13 @@
             android:name=".QrCodeActivity"
             android:exported="false" />
         <activity android:name=".ProgressActivity" />
+        <activity 
+            android:name=".AdminActivity"
+            android:exported="false" />
+            
+        <activity 
+            android:name=".RegisterUserActivity"
+            android:exported="false" />
 
     </application>
 

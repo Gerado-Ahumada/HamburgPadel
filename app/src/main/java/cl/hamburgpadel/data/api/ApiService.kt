@@ -3,6 +3,8 @@ package cl.hamburgpadel.data.api
 import cl.hamburgpadel.data.models.LoginRequest
 import cl.hamburgpadel.data.models.LoginResponse
 import cl.hamburgpadel.data.models.User
+import cl.hamburgpadel.data.model.SignupRequest
+import cl.hamburgpadel.data.model.SignupResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -37,4 +39,13 @@ interface ApiService {
      */
     @POST("auth/refresh")
     suspend fun refreshToken(@Header("Authorization") token: String): Response<LoginResponse>
+    
+    /**
+     * Endpoint para registrar nuevo usuario
+     */
+    @POST("auth/signup")
+    suspend fun signup(
+        @Header("Authorization") token: String,
+        @Body signupRequest: SignupRequest
+    ): Response<SignupResponse>
 }

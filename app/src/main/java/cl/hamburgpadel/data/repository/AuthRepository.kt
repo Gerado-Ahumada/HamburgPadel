@@ -3,6 +3,8 @@ package cl.hamburgpadel.data.repository
 import cl.hamburgpadel.data.models.LoginRequest
 import cl.hamburgpadel.data.models.LoginResponse
 import cl.hamburgpadel.data.models.User
+import cl.hamburgpadel.data.model.SignupRequest
+import cl.hamburgpadel.data.model.SignupResponse
 import cl.hamburgpadel.data.network.NetworkManager
 import retrofit2.Response
 
@@ -63,6 +65,25 @@ class AuthRepository {
                 Result.success(Unit)
             } else {
                 Result.failure(Exception("Error al cerrar sesión: ${response.code()}"))
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    
+    /**
+     * Registra un nuevo usuario (requiere token de admin)
+     */
+    suspend fun signup(adminToken: String, signupRequest: SignupRequest): Result<SignupResponse> {
+        return try {
+            val response = apiService.signup("Bearer $adminToken", signupRequest)
+            
+            if (response.isSuccessful) {
+                response.body()?.let { signupResponse ->
+                    Result.success(signupResponse)
+                } ?: Result.failure(Exception("Respuesta vacía del servidor"))
+            } else {
+                Result.failure(Exception("Error HTTP: ${response.code()} - ${response.message()}"))
             }
         } catch (e: Exception) {
             Result.failure(e)

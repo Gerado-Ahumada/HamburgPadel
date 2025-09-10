@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <!-- Chat bubble with pencil icon -->
+    <path
+        android:fillColor="#4ECDC4"
+        android:pathData="M22,22 L490,22 Q512,22 512,44 L512,300 Q512,322 490,322 L350,322 L320,380 L290,322 L44,322 Q22,322 22,300 L22,44 Q22,22 44,22 Z"/>
+    <!-- Pencil -->
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M300,100 L420,220 L380,260 L260,140 Z"/>
+    <path
+        android:fillColor="#F4D03F"
+        android:pathData="M420,80 L440,100 L420,120 L400,100 Z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M320,240 L380,180 L400,200 L340,260 Z"/>
+    <!-- Lines in bubble -->
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M108,138 L350,138 Q360,138 360,148 Q360,158 350,158 L108,158 Q98,158 98,148 Q98,138 108,138 Z"/>
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M108,198 L308,198 Q318,198 318,208 Q318,218 308,218 L108,218 Q98,218 98,208 Q98,198 108,198 Z"/>
+    <path
+        android:fillColor="#5A6C7D"
+        android:pathData="M108,258 L250,258 Q260,258 260,268 Q260,278 250,278 L108,278 Q98,278 98,268 Q98,258 108,258 Z"/>
+</vector>
