@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Icono de usuario -->
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_user"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical" />
+
+        <!-- Información del usuario -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre Completo"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/padel_black" />
+
+            <TextView
+                android:id="@+id/textViewUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:textSize="14sp"
+                android:textColor="@color/padel_grey_dark"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="email@example.com"
+                android:textSize="14sp"
+                android:textColor="@color/padel_grey_dark"
+                android:layout_marginTop="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/textViewCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SENIOR"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/category_badge_background"
+                    android:padding="4dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/textViewStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ACTIVE"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/status_badge_background"
+                    android:padding="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Botón de editar -->
+        <Button
+            android:id="@+id/buttonEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:backgroundTint="@color/padel_black"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

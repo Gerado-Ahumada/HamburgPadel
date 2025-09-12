@@ -3,6 +3,7 @@ package cl.hamburgpadel.data.repository
 import cl.hamburgpadel.data.models.LoginRequest
 import cl.hamburgpadel.data.models.LoginResponse
 import cl.hamburgpadel.data.models.User
+import cl.hamburgpadel.data.models.PlayersResponse
 import cl.hamburgpadel.data.model.SignupRequest
 import cl.hamburgpadel.data.model.SignupResponse
 import cl.hamburgpadel.data.network.NetworkManager
@@ -81,6 +82,37 @@ class AuthRepository {
             if (response.isSuccessful) {
                 response.body()?.let { signupResponse ->
                     Result.success(signupResponse)
+                } ?: Result.failure(Exception("Respuesta vacía del servidor"))
+            } else {
+                Result.failure(Exception("Error HTTP: ${response.code()} - ${response.message()}"))
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    
+    /**
+     * Obtiene la lista de usuarios/jugadores con filtros y paginación
+     */
+    suspend fun getUsersList(
+        token: String,
+        name: String? = null,
+        category: String? = null,
+        page: Int = 0,
+        size: Int = 10
+    ): Result<PlayersResponse> {
+        return try {
+            val response = apiService.getUsersList(
+                token = "Bearer $token",
+                name = name,
+                category = category,
+                page = page,
+                size = size
+            )
+            
+            if (response.isSuccessful) {
+                response.body()?.let { playersResponse ->
+                    Result.success(playersResponse)
                 } ?: Result.failure(Exception("Respuesta vacía del servidor"))
             } else {
                 Result.failure(Exception("Error HTTP: ${response.code()} - ${response.message()}"))

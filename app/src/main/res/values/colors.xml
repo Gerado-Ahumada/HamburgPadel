@@ -6,4 +6,8 @@
     <color name="padel_white">#F7F9FC</color>  <!-- Un blanco ligeramente azulado para el fondo -->
     <color name="padel_grey">#E0E0E0</color>   <!-- Gris claro para elementos pendientes -->
     <color name="padel_grey_dark">#757575</color> <!-- Gris oscuro para texto secundario -->
+    <color name="primary_color">#4285F2</color> <!-- Color primario -->
+    <color name="secondary_text_color">#757575</color> <!-- Color de texto secundario -->
+    <color name="primary_text_color">#212121</color>
+    <color name="background_color">#FAFAFA</color>
 </resources>

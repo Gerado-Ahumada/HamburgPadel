@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit
 object NetworkManager {
     
     // Configuración para backend local
-    private const val BASE_URL = "http://10.0.2.2:8082/api/" // Para emulador Android
+    // private const val BASE_URL = "http://10.0.2.2:8082/api/" // Para emulador Android
     // private const val BASE_URL = "http://localhost:8082/api/" // Para pruebas en navegador
-    // private const val BASE_URL = "http://192.168.1.XXX:8082/api/" // Para dispositivo físico (cambiar XXX por tu IP)
+    private const val BASE_URL = "http://192.168.1.86:8082/api/" // Para dispositivo físico (IP actual del host)
     
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

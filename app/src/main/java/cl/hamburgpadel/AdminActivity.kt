@@ -30,6 +30,9 @@ class AdminActivity : AppCompatActivity() {
         // Configurar listeners del menú
         setupMenuListeners()
         
+        // Configurar botón de listar usuarios
+        setupListUsersButton()
+        
         // Configurar botón de logout
         setupLogoutButton()
     }
@@ -65,6 +68,14 @@ class AdminActivity : AppCompatActivity() {
         // Cobrar Beneficio
         findViewById<CardView>(R.id.cardViewCollectBenefit).setOnClickListener {
             Toast.makeText(this, "Cobrar Beneficio - Próximamente", Toast.LENGTH_SHORT).show()
+        }
+    }
+    
+    private fun setupListUsersButton() {
+        val cardViewListUsers = findViewById<androidx.cardview.widget.CardView>(R.id.cardViewListUsers)
+        cardViewListUsers.setOnClickListener {
+            val intent = Intent(this, ListUsersActivity::class.java)
+            startActivity(intent)
         }
     }
     

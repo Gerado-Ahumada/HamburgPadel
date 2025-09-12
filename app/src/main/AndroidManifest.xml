@@ -55,6 +55,14 @@
         <activity 
             android:name=".RegisterUserActivity"
             android:exported="false" />
+            
+        <activity 
+            android:name=".ListUsersActivity"
+            android:exported="false" />
+            
+        <activity 
+            android:name=".EditUserActivity"
+            android:exported="false" />
 
     </application>
 
